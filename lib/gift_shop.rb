@@ -40,7 +40,30 @@
 #  )
 
 class Item
+
+    def initialize(weight:, quantity: 1)
+        @weight = weight
+        @quantity = quantity
+    end
+
+    def total_weight
+        @weight * @quantity
+    end
 end
 
-class Box
+class Box < Item
+
+    def initialize(weight:, items:)
+        super(weight: weight)
+        @items = items
+    end
+
+    def total_weight
+        @sum = 0
+        @items.each { |i|
+            @sum += i.total_weight
+        }
+        @sum + @weight
+    end
 end
+

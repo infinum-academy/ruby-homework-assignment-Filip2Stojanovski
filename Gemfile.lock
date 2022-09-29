@@ -52,6 +52,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-20
+  arm64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -62,4 +63,4 @@ DEPENDENCIES
   rubocop-rspec
 
 BUNDLED WITH
-   2.2.16
+   2.3.22
