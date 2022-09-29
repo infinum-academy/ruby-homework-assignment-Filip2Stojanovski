@@ -8,4 +8,11 @@
 #  "A wizard's job is to vex chumps quickly in fog." => true
 #  "Here are some letters missing" => false
 
-def all_letters?(sentence); end
+
+def all_letters?(sentence)
+    sentence.downcase.chars().select { |i| i >= 'a' && i <= 'z' }.uniq.count == 26
+end
+
+
+pp all_letters?("A wizard's job is to vex chumps quickly in fog.")
+pp all_letters?("Here are some letters missing")
