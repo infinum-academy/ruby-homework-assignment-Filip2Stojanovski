@@ -15,4 +15,41 @@
 #   https://regos.hr/app/uploads/2018/07/KONTROLA-OIB-a.pdf
 
 class Oib
+
+    def initialize( oib )
+        if oib.chars().count < 11
+            raise ArgumentError.new "Code is too short"
+        elsif oib.chars().count > 11
+            raise ArgumentError.new "Code is too long"
+        elsif oib.scan(/\D/).empty?
+            @oibNumber = oib
+        else
+            raise ArgumentError.new "Code should contain only digits"
+        end
+
+    end
+
+    def valid?
+
+        if @oibNumber.chars().count == 11
+            @zero = 0
+        end
+
+        if @oibNumber.chars().count == 1
+            @control = 11 - @zero == 10 ? 0 : 11 - @zero
+            @control == @oibNumber.chr.to_i
+        else
+            @middle = (@oibNumber.chr.to_i + @zero + 10) % 10
+
+            @nonZeroMiddle = @middle == 0 ? 10 : @middle
+
+            @zero = @nonZeroMiddle * 2 % 11
+
+            @oibNumber.slice!(0)
+            valid?
+        end
+    end
 end
+
+number = Oib.new "69435151530"
+pp number.valid?
