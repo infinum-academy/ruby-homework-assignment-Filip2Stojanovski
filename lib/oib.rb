@@ -50,6 +50,3 @@ class Oib
         end
     end
 end
-
-number = Oib.new "69435151530"
-pp number.valid?

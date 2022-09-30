@@ -46,7 +46,6 @@ class Sentence
                 @shatro.concat(@word.to_shatro.to_s)
             end
         }
-        pp @shatro
     end
 
 end
@@ -85,13 +84,4 @@ class Character
         @character.downcase=="a" || @character.downcase=="e" || @character.downcase=="i" || @character.downcase=="o" || @character.downcase=="u"
     end
 end
-
-#ch = Character.new "e"
-#pp ch.vowel?
-
-#wr = Word.new "word"
-#pp wr.to_shatro
-
-sen = Sentence.new "Kako si"
-sen.to_shatro
 
